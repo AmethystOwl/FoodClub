@@ -1,0 +1,71 @@
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.foodclub.register.steps.FinishFragment">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:background="@drawable/ic_background_pattern"
+            android:foreground="@drawable/background_gradiant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/congratsImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:src="@drawable/ic_profile_finished"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <com.veeyaar.supergradienttextview.GradientTextView
+            android:id="@+id/congratsGradiantTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/congrats"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:endColor="#15BE77"
+            app:isVertical="true"
+            app:layout_constraintEnd_toEndOf="@id/congratsImageView"
+            app:layout_constraintStart_toStartOf="@id/congratsImageView"
+            app:layout_constraintTop_toBottomOf="@id/congratsImageView"
+            app:startColor="#53E88B" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/your_profile_is_ready_to_use"
+            android:textColor="#09051C"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/congratsGradiantTextView"
+            app:layout_constraintStart_toStartOf="@id/congratsGradiantTextView"
+            app:layout_constraintTop_toBottomOf="@id/congratsGradiantTextView" />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="@string/order_now"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

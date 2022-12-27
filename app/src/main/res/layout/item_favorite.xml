@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="restaurant"
+            type="com.example.foodclub.model.Restaurant" />
+        <variable
+            name="position"
+            type="Integer" />
+        <variable
+            name="onClickListener"
+            type="com.example.foodclub.adapter.FavoritesAdapter.OnFavoritesItemClickListener" />
+
+        <variable
+            name="onRemoveItemClickListener"
+            type="com.example.foodclub.adapter.FavoritesAdapter.OnRemoveItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="?selectableItemBackground"
+        android:backgroundTint="@color/white"
+        android:onClick="@{() -> onClickListener.onClick(restaurant.id)}">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/restaurantImageView"
+            bindImage="@{restaurant.iconImageUrl}"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/favoriteImageVIew"
+            app:strokeColor="#EDEDED"
+            app:strokeWidth="5dp" />
+
+        <TextView
+            android:id="@+id/restaurantNameTextView"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/dp_1_5"
+            android:text="@{restaurant.name}"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/restaurantImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Kansas Fried Chicken" />
+
+
+        <TextView
+            android:id="@+id/restaurantCuisineTextView"
+            style="@style/TextAppearance.MaterialComponents.Headline1"
+            bindCuisines="@{restaurant.cuisines}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/dp_1_5"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@id/restaurantImageView"
+            app:layout_constraintTop_toBottomOf="@id/restaurantNameTextView"
+            tools:text="Fast Food . Sandwiches . Fried Chicken" />
+
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/materialRatingBar"
+            style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:rating="4.6"
+            app:layout_constraintStart_toEndOf="@id/restaurantImageView"
+            app:layout_constraintTop_toBottomOf="@id/restaurantCuisineTextView"
+            app:mrb_fillBackgroundStars="false" />
+
+
+        <TextView
+            android:id="@+id/totalRatingsRatioTextVIew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{restaurant.rating.toString()}"
+            app:layout_constraintBottom_toBottomOf="@id/materialRatingBar"
+            app:layout_constraintStart_toEndOf="@id/materialRatingBar"
+            app:layout_constraintTop_toTopOf="@id/materialRatingBar"
+            tools:text="4.6" />
+
+        <TextView
+            android:id="@+id/totalRatingsTextVIew"
+            bindRating="@{restaurant.noOfReviews}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/totalRatingsRatioTextVIew"
+            app:layout_constraintStart_toEndOf="@id/totalRatingsRatioTextVIew"
+            app:layout_constraintTop_toTopOf="@id/totalRatingsRatioTextVIew"
+            tools:text="(4.1k)" />
+
+        <ImageView
+            android:id="@+id/favoriteImageView"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="@{() -> onRemoveItemClickListener.onClick(restaurant.id,position)}"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_favorite_red_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

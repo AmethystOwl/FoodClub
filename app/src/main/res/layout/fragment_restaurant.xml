@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.foodclub.model.Restaurant" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clipChildren="false"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/htab_collapse_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:clipChildren="false"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:titleEnabled="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/toolbar"
+                        app:layout_collapseMode="pin">
+
+
+                        <ImageView
+                            android:id="@+id/star1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_icon_star_half"
+                            app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+
+                            <TextView
+                                android:id="@+id/ratingsTextView"
+                                bindRating="@{item.noOfReviews}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                app:layout_constraintBottom_toBottomOf="@id/star1"
+                                app:layout_constraintStart_toEndOf="@id/star1"
+                                app:layout_constraintTop_toTopOf="@id/star1"
+                                tools:text="124 Ratings" />
+
+                            <TextView
+                                android:id="@+id/categoriesTextView"
+                                bindCuisines="@{item.cuisines}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="13dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/star1"
+                                tools:text="Pizza, Fast Food" />
+
+                            <ImageView
+                                android:id="@+id/mapImageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="5dp"
+                                android:src="@drawable/ic_icon_map_pin"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/categoriesTextView"
+                                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                            <TextView
+                                android:id="@+id/locationTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="@{item.location}"
+                                app:layout_constraintBottom_toBottomOf="@+id/mapImageView"
+                                app:layout_constraintStart_toEndOf="@id/mapImageView"
+                                app:layout_constraintTop_toTopOf="@+id/mapImageView"
+                                tools:layout_editor_absoluteY="322dp"
+                                tools:text="24 El Nasr St., New Maadi" />
+
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/restaurantTabLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/locationTextView"
+                            app:tabMode="fixed" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:contentInsetStart="0dp"
+                        app:contentInsetStartWithNavigation="0dp"
+                        app:navigationIcon="?attr/homeAsUpIndicator">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/restaurantIcon"
+                                bindImage="@{item.iconImageUrl}"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:elevation="4dp"
+                                android:scaleType="fitXY"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:shapeAppearanceOverlay="@style/circularImageVIew"
+                                tools:ignore="ContentDescription"
+                                tools:src="@drawable/food1" />
+
+
+                            <TextView
+                                android:id="@+id/toolbar_title"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@{item.name}"
+                                android:textAllCaps="true"
+                                android:textColor="#000"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/favoriteImageView"
+                                app:layout_constraintStart_toEndOf="@id/restaurantIcon"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="Pizza hut" />
+
+                            <ImageView
+                                android:id="@+id/favoriteImageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dp_20"
+                                android:clickable="true"
+                                android:src="@drawable/ic_baseline_favorite_border_24"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.appbar.MaterialToolbar>
+                </RelativeLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:userInputEnabled="@{false}" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cartViewModel"
+            type="com.example.foodclub.cart.CartViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:backgroundTint="#FAFAFA"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/materialToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="@string/my_cart" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <include
+            android:id="@+id/empty_cart_layout"
+            layout="@layout/layout_empty_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FAFAFA"
+            android:fillViewport="true"
+            android:visibility="invisible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp_50"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/restaurantLogoImageView"
+                            bindImage="@{cartViewModel.cartRestaurantLogo}"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/circularImageVIew"
+                            tools:src="@drawable/food1" />
+
+                        <TextView
+                            android:id="@+id/yourOrdersFromTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/your_orders_from"
+                            app:layout_constraintStart_toEndOf="@id/restaurantLogoImageView"
+                            app:layout_constraintTop_toTopOf="@id/restaurantLogoImageView" />
+
+                        <TextView
+                            android:id="@+id/restaurantNameTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@{cartViewModel.cartRestaurantName}"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@id/restaurantLogoImageView"
+                            app:layout_constraintTop_toBottomOf="@id/yourOrdersFromTextView"
+                            tools:text="Pizza Hut" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/addCardView"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_marginEnd="15dp"
+                            android:backgroundTint="@color/primaryLight"
+                            app:cardCornerRadius="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="@dimen/dp_24"
+                                android:layout_height="@dimen/dp_24"
+                                android:layout_gravity="center"
+                                android:background="@color/primaryDark"
+                                android:src="@drawable/ic_baseline_add_24"
+                                app:shapeAppearanceOverlay="@style/circularImageVIew" />
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/orderDetailsTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:text="@string/order_details"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@id/removeAllMaterialButton"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/removeAllMaterialButton" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/removeAllMaterialButton"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp_10"
+                            android:text="@string/remove_all"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="12sp"
+                            app:icon="@drawable/ic_outline_remove_shopping_cart_24"
+                            app:iconGravity="start"
+                            app:iconTint="@android:color/darker_gray"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeWidth="0dp" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/cartRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/removeAllMaterialButton"
+                            tools:itemCount="3"
+                            tools:listitem="@layout/item_cart" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/checkoutButton"
+            layout="@layout/layout_checkout_button"
+            android:visibility="invisible"
+            app:itemsCount="@{cartViewModel.cartItemCount}"
+            app:totalPrice="@{cartViewModel.cartTotalPrice}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

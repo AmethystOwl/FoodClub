@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.foodclub.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.foodclub.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/register_fragment">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.foodclub.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantFragment"
+        android:name="com.example.foodclub.restaurant.RestaurantFragment"
+        android:label="Restaurant"
+        tools:layout="@layout/fragment_restaurant">
+        <argument
+            android:name="restaurantId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_restaurantFragment_to_mealFragment"
+            app:destination="@id/mealFragment" />
+        <argument
+            android:name="isToReview"
+            android:defaultValue="false"
+
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealFragment"
+        android:name="com.example.foodclub.meal.MealFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_meal">
+        <argument
+            android:name="restaurantId"
+            app:argType="string" />
+        <argument
+            android:name="restaurantName"
+            app:argType="string" />
+        <argument
+            android:name="restaurantLogo"
+            app:argType="string" />
+        <argument
+            android:name="menuItemId"
+            app:argType="string" />
+        <argument
+            android:name="present"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="qty"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <action
+            android:id="@+id/to_Pizza_AR"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.foodclub.cart.CartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cartFragment_to_mealFragment"
+            app:destination="@id/mealFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.foodclub.register.steps.PhotoFragment"
+        android:label="Profile Picture"
+        tools:layout="@layout/fragment_photo">
+
+        <action
+            android:id="@+id/action_photoFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="com.example.foodclub.register.steps.FinishFragment"
+        android:label="Finish"
+        tools:layout="@layout/fragment_finish">
+        <action
+            android:id="@+id/action_finishFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.foodclub.forgot_password.ForgotPasswordFragment"
+        android:label="Forgot Password"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.foodclub.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addressBookFragment"
+            app:destination="@id/addressBookFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.foodclub.onboarding.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.foodclub.onboarding.ViewPagerFragment"
+        android:label="ViewPagerFragment"
+        tools:layout="@layout/fragment_view_pager">
+        <action
+            android:id="@+id/action_viewPagerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressBookFragment"
+        android:name="com.example.foodclub.addressbook.AddressBookFragment"
+        android:label="AddressBookFragment"
+        tools:layout="@layout/fragment_address_book">
+        <action
+            android:id="@+id/action_addressBookFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.foodclub.change_password.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.foodclub.favorite.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites">
+        <action
+            android:id="@+id/action_favoritesFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.foodclub.ar.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main_ar" />
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.foodclub.order.OrdersFragment"
+        android:label="OrdersFragment">
+        <action
+            android:id="@+id/action_ordersFragment_to_viewOrderFragment"
+            app:destination="@id/viewOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.foodclub.algolia.SearchFragment"
+        android:label="ProductFragment">
+        <action
+            android:id="@+id/action_productFragment_to_mealFragment"
+            app:destination="@id/mealFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.foodclub.location.MapsFragment"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/viewOrderFragment"
+        android:name="com.example.foodclub.order.view_order.ViewOrderFragment"
+        android:label="viewOrderFragment"
+        tools:layout="@layout/fragment_view_order">
+        <argument
+            android:name="orderItemUi"
+            app:argType="com.example.foodclub.model.OrderItemUi" />
+
+        <action
+            android:id="@+id/action_viewOrderFragment_to_mealFragment"
+            app:destination="@id/mealFragment" />
+        <action
+            android:id="@+id/action_viewOrderFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.foodclub.register.steps.LocationFragment"
+        android:label="LocationFragment"
+        tools:layout="@layout/fragment_location">
+        <action
+            android:id="@+id/action_locationFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_finishFragment"
+            app:destination="@id/finishFragment" />
+    </fragment>
+</navigation>

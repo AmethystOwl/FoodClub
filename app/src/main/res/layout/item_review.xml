@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="review"
+            type="com.example.foodclub.model.Review" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/userImageView"
+                bindImage="@{review.userImageUrl}"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/circularImageVIew"
+                tools:src="@drawable/ic_baseline_person_24" />
+
+            <TextView
+                android:id="@+id/userNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{review.userName}"
+                app:layout_constraintStart_toEndOf="@id/userImageView"
+                app:layout_constraintTop_toTopOf="@id/userImageView"
+                tools:text="Ahmed" />
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:id="@+id/materialRatingBar"
+                style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:rating="@{review.rating}"
+                app:layout_constraintStart_toEndOf="@id/userImageView"
+                app:layout_constraintTop_toBottomOf="@id/userNameTextView"
+                app:mrb_fillBackgroundStars="true"
+                app:mrb_progressTint="@color/primaryLight"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/reviewTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="@{review.timestamp.toDate().toString()}"
+                app:layout_constraintBottom_toBottomOf="@id/materialRatingBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/materialRatingBar"
+                app:layout_constraintTop_toTopOf="@id/materialRatingBar" />
+
+            <TextView
+                android:id="@+id/reviewText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{review.review}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userImageView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

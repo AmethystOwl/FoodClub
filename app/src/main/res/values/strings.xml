@@ -1,0 +1,145 @@
+<resources>
+    <string name="app_name">FoodClub</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="login">Login</string>
+
+    <string name="full_name">Full Name</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="password_too_short">Password must be from 6 to 20 characters</string>
+    <string name="passwords_dont_match">Password doesn\'t match confirmation</string>
+    <string name="name_too_short">Name is too short</string>
+    <string name="email_null">Email Address is blank</string>
+    <string name="invalid_email_format">Please enter a valid Email Address</string>
+    <string name="date_of_birth_blank">Date of birth is blank</string>
+    <string name="name_empty">Please enter your name</string>
+    <string name="phone_blank">Please enter your phone</string>
+    <string name="phone_invalid">Please enter a valid phone number</string>
+    <string name="account_not_found">The email address you entered isn\'t connected to an account</string>
+    <string name="account_invalid_password">The password that you\'ve entered is incorrect</string>
+    <string name="login_to_your_account">Login To Your Account</string>
+    <string name="update_your_profile_picture">Update Your Profile Picture</string>
+    <string name="clear">Clear</string>
+    <string name="next">Next</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="or_continue_with">Or Continue With</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up_for_free">Sign Up For Free</string>
+    <string name="loading">Loading…</string>
+    <string name="menu">Menu</string>
+    <string name="filter">Filter</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="current_email">Current Email</string>
+    <string name="new_email">New Email</string>
+    <string name="current_password">Current Password</string>
+    <string name="retype_new_password">Retype New Password</string>
+    <string name="congrats">Congrats!</string>
+    <string name="your_profile_is_ready_to_use">Your Profile Is Ready To Use</string>
+    <string name="order_now">Order Now</string>
+    <string name="find_your_comfort_n_food_here">Find Your Comfort Food Here</string>
+    <string name="here_you_can_find_a_dish_for_every_n_taste_and_color_enjoy">Here you can find a dish for every taste and color, Enjoy!</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="via_sms">Via sms:</string>
+    <string name="via_email">Via email:</string>
+    <string name="set_your_location">Set Your Location</string>
+    <string name="your_location">Your Location</string>
+    <string name="set_location">Set Location</string>
+    <string name="see_in_reality">See in Reality</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="favorites">Favorites</string>
+    <string name="my_reviews">My Reviews</string>
+    <string name="settings">Settings</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
+    <string name="address_book">Address Book</string>
+    <string name="logout">Logout</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reset">Reset</string>
+    <string name="password_reset_successful">Password has been reset successfully</string>
+    <string name="info">Info</string>
+    <string name="reviews">Reviews</string>
+    <string name="online_menu">Online Menu</string>
+    <string name="foodclub_is_where_your_n_comfort_food_lives">FoodClub Is Where Your Comfort Food Lives</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="create_account">Create Account</string>
+    <string name="enjoy_a_fast_and_smooth_food_delivery_at_n_your_doorstep">Enjoy a fast and smooth food delivery at\nyour doorstep</string>
+    <string name="reset_your_password_here">Reset Your Password Here</string>
+    <string name="select_which_method_should_be_used_to_reset_your_password">Select which method should be used to reset your password</string>
+    <string name="what_do_you_want_to_order">What do you want to order?</string>
+    <string name="discover_top_dishes">Discover Top Dishes</string>
+    <string name="view_more">View More</string>
+    <string name="web_client_id" translatable="false">429854078677–7coj2t9q5me5526s4ok7onmvvn3rh875.apps.googleusercontent.com</string>
+    <string name="explore">Explore</string>
+    <string name="special_deal_for_the_month">Special Deal For The Month</string>
+    <string name="egp">EGP</string>
+    <string name="ratings_template">%s ratings</string>
+    <string name="filter_by">Filter by</string>
+    <string name="free_delivery">Free Delivery</string>
+    <string name="open_now">Open Now</string>
+    <string name="sort_by">Sort by</string>
+    <string name="a_to_z">A to Z</string>
+    <string name="ratings">Ratings</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+
+    <string name="app_lang_pref" translatable="false">com.zeugmasolutions.localehelper.LocaleHelper</string>
+    <string name="app_lang_pref_key" translatable="false">Locale.Helper.Selected.Language</string>
+    <string name="datastore_first_time_key" translatable="false">first_time</string>
+    <string name="datastore_auth_key" translatable="false">auth_key</string>
+    <string name="arabic_code" translatable="false">ar</string>
+    <string name="english_code" translatable="false">en</string>
+    <string name="order_details">Order Details</string>
+    <string name="your_orders">Your Orders</string>
+    <string name="address">Address</string>
+    <string name="working_hours">Working hours</string>
+    <string name="ate_here_before">Ate here before?</string>
+    <string name="add_review">Add Review</string>
+    <string name="write_your_review_here">Write your review here</string>
+    <string name="post_review">Post Review</string>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYWFzZGFzZDEyIiwiYSI6ImNsNHl2eHlvODIyemczbW1sZWM5bjhqYXMifQ.IuOZJn-uJjaaC8V7VihdsA</string>
+    <string name="orders">Orders</string>
+    <string name="checkout_now">Checkout Now</string>
+    <string name="your_orders_from">Your orders from</string>
+    <string name="remove_all">Remove All</string>
+    <string name="my_cart">My Cart</string>
+    <string name="x" translatable="false">x</string>
+    <string name="remove">Remove</string>
+    <string name="plus_symbol" translatable="false">+</string>
+    <string name="item_added_to_cart">Item\'s been added to your cart.</string>
+    <string name="hey_your_cart_is_empty">Hey, your cart is empty!</string>
+    <string name="orderState">%s on %s</string>
+    <string name="orderedFrom">Ordered from %s</string>
+    <string name="buy_it_again">Buy it again</string>
+    <string name="how_was_the_food">How was the food?</string>
+    <string name="write_a_meal_review">Write a meal review</string>
+    <string name="review_your_food">Review your food</string>
+    <string name="order_info">Order info</string>
+    <string name="set_current_location">Set Current Location</string>
+    <string name="userLocation">Apartment #%d, floor #%d, building #%d, %s</string>
+    <string name="old_pass_invalid">"Old password is invalid,\nPlease try again."</string>
+    <string name="ok">OK</string>
+    <string name="session_expired">Session expired,\nplease try logging in again.</string>
+    <string name="pass_no_match">Your passwords don\'t match.</string>
+    <string name="new_pass_reenter">Please re-enter your new password.</string>
+    <string name="new_pass_enter">Please enter your new password.</string>
+    <string name="cur_pass_enter">Please enter your current password.</string>
+    <string name="pass_changed">Password has been changed.</string>
+    <string name="find_your_account">Find Your Account</string>
+    <string name="email_address">Email address</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="email_malformatted">Email address is badly formatted.</string>
+    <string name="email_blank">Please enter your email address.</string>
+    <string name="reset_email_sent">Reset link has been sent.</string>
+    <string name="floor">Floor</string>
+    <string name="building_no">Building no.</string>
+    <string name="street_no_name">Street no./name</string>
+    <string name="save">Save</string>
+    <string name="there_s_already_an_open_cart_are_you_sure_you_want_n_to_create_a_new_one">There\'s already an open Cart, Are you sure you want\nto create a new one?</string>
+    <string name="the_ultimate_mix_of_chicken_together_with_mushrooms" translatable="false">The ultimate mix of Chicken together with Mushrooms.</string>
+</resources>

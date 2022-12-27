@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="cartItemUi"
+            type="com.example.foodclub.model.CartItemUi" />
+
+        <variable
+            name="onCartItemRemoveClickListener"
+            type="com.example.foodclub.adapter.CartAdapter.OnCartItemRemoveClickListener" />
+
+        <variable
+            name="onCartItemEditClickListener"
+            type="com.example.foodclub.adapter.CartAdapter.OnCartItemEditClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:paddingBottom="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/x"
+            android:textColor="@color/secondaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/quantityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{cartItemUi.quantity.toString()}"
+            android:textColor="@color/secondaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/menuItemNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{cartItemUi.name}"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/quantityTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="McChicken" />
+
+        <TextView
+            android:id="@+id/egpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="1dp"
+            android:text="@string/egp"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/priceTextView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="@{cartItemUi.total.toString()}"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/egpTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="300.00" />
+
+
+        <TextView
+            android:id="@+id/quantity2TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{cartItemUi.quantity.toString()}"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/egpTextView"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/timesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="2dp"
+            android:text="@string/x"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/quantity2TextView"
+            app:layout_constraintTop_toBottomOf="@id/egpTextView" />
+
+        <TextView
+            android:id="@+id/itemPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="2dp"
+            android:text="@{cartItemUi.price.toString()}"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/timesTextView"
+            app:layout_constraintTop_toBottomOf="@id/egpTextView"
+            tools:text="100.00" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editItemMaterialButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{() -> onCartItemEditClickListener.onEdit(cartItemUi,position)}"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/edit"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            app:icon="@drawable/ic_baseline_edit_24"
+            app:iconGravity="start"
+            app:iconTint="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="@id/menuItemNameTextView"
+            app:layout_constraintTop_toBottomOf="@id/menuItemNameTextView"
+            app:strokeWidth="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteItemMaterialButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="5dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{() -> onCartItemRemoveClickListener.onRemove(cartItemUi,position)}"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/remove"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            app:icon="@drawable/ic_baseline_delete_24"
+            app:iconGravity="start"
+            app:iconTint="@android:color/darker_gray"
+            app:layout_constraintStart_toEndOf="@id/editItemMaterialButton"
+            app:layout_constraintTop_toBottomOf="@id/menuItemNameTextView"
+            app:strokeWidth="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

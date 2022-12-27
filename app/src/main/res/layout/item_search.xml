@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="searchItem"
+            type="com.example.foodclub.model.SearchItem" />
+
+        <variable
+            name="onSearchItemClickListener"
+            type="com.example.foodclub.adapter.SearchAdapter.OnSearchItemClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="0dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:onClick="@{() ->  onSearchItemClickListener.onCLick(searchItem)}"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/itemImageView"
+                bindImage="@{searchItem.imageUrl}"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="@dimen/dp_10"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/circularImageVIew"
+                app:strokeWidth="1dp" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/dp_10"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@{searchItem.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/itemImageView"
+                app:layout_constraintTop_toTopOf="@id/itemImageView"
+                tools:text="Cheese Pizza" />
+
+            <TextView
+                android:id="@+id/productRestaurant"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@{searchItem.restaurantName}"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/itemImageView"
+                app:layout_constraintTop_toBottomOf="@id/productName"
+                tools:text="Papa John's Pizza" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
+    <!--
+
+    <layout>
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/listPreferredItemHeightSmall"
+        android:layout_marginBottom="0.5dp"
+        app:cardCornerRadius="0dp"
+        tools:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textSize="16sp"
+            tools:text="@tools:sample/lorem/random" />
+
+    </com.google.android.material.card.MaterialCardView>
+    </layout>
+    -->

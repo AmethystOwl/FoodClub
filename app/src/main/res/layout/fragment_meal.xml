@@ -1,0 +1,221 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <data>
+
+        <variable
+            name="mealViewModel"
+            type="com.example.foodclub.meal.MealViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:contentScrim="@color/white"
+
+                app:expandedTitleTextColor="#00112233"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="true">
+
+
+                <ImageView
+                    android:id="@+id/menuItemImageUrl"
+                    bindImage="@{mealViewModel.menuItem.imageUrl}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/pizza" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/materialToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    app:navigationIcon="?homeAsUpIndicator"
+                    app:navigationIconTint="@color/black" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_sheet_background">
+
+                    <Button
+                        android:id="@+id/to_AR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_30"
+                        android:text="@string/see_in_reality"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/menuItemNameTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/menuItemNameTextView" />
+
+
+                    <TextView
+                        android:id="@+id/menuItemNameTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@{mealViewModel.menuItem.name}"
+                        android:textColor="#09051C"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/to_AR"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Pizza Margherita\nExtra Cheese" />
+
+
+                    <TextView
+                        android:id="@+id/priceHolderTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/egp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/menuItemNameTextView"
+                        app:layout_constraintTop_toBottomOf="@id/menuItemNameTextView" />
+
+                    <TextView
+                        android:id="@+id/priceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@{mealViewModel.total.toString()}"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/priceHolderTextView"
+                        app:layout_constraintStart_toEndOf="@id/priceHolderTextView"
+                        app:layout_constraintTop_toTopOf="@id/priceHolderTextView"
+                        tools:text="45.00" />
+
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        text="@{mealViewModel.menuItem.description}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="33dp"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/priceHolderTextView"
+                        tools:text="@tools:sample/lorem/random" />
+
+                    <com.diegodobelo.expandingview.ExpandingList
+                        android:id="@+id/expanding_list_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="#F8F8F8"
+            android:paddingTop="10dp"
+            android:paddingBottom="@dimen/dp_10">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/minusImageView"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="@dimen/dp_20"
+                android:background="#D3D3D3"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_remove_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/circularImageVIew" />
+
+            <TextView
+                android:id="@+id/quantityTextView"
+                bindQuantityTextView="@{mealViewModel.menuItem.qty}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@id/minusImageView"
+                app:layout_constraintEnd_toStartOf="@id/plusImageView"
+                app:layout_constraintStart_toEndOf="@id/minusImageView"
+                app:layout_constraintTop_toTopOf="@id/minusImageView" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/plusImageView"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="15dp"
+                android:background="#D3D3D3"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/addToCartButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/circularImageVIew" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToCartButton"
+                bindAddButtonText="@{mealViewModel.menuItem.present}"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="10dp"
+                android:text="@string/add_to_cart"
+                android:textColor="@color/white"
+                app:icon="@drawable/ic_baseline_shopping_cart_24"
+                app:iconGravity="start"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

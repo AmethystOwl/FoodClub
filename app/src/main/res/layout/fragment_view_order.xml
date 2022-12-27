@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="orderItemUi"
+            type="com.example.foodclub.model.OrderItemUi" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".order.view_order.ViewOrderFragment">
+
+        <ImageView
+            android:id="@+id/orderItemImageView"
+            bindImage="@{orderItemUi.imageUrl}"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/orderItemTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{orderItemUi.name}"
+            android:textColor="@color/secondaryDark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/orderItemImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/orderItemImageView"
+            app:layout_constraintTop_toTopOf="@id/orderItemImageView"
+            tools:text="4X4 Cheese Pizza" />
+
+        <View
+            android:id="@+id/spacer1"
+            android:layout_width="0dp"
+            android:layout_height=".2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orderItemImageView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/buyAgainCardView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spacer1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:text="@string/buy_it_again"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/spacer2"
+            android:layout_width="0dp"
+            android:layout_height=".4dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buyAgainCardView" />
+
+        <View
+            android:id="@+id/gap1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#d1d1d1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spacer2" />
+
+        <TextView
+            android:id="@+id/howsYourfoodTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/how_was_the_food"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gap1" />
+
+
+        <View
+            android:id="@+id/spacer3"
+            android:layout_width="0dp"
+            android:layout_height=".2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/howsYourfoodTextView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/writeReviewCardView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spacer3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:text="@string/review_your_food"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/spacer4"
+            android:layout_width="0dp"
+            android:layout_height=".4dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/writeReviewCardView" />
+
+        <View
+            android:id="@+id/gap2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#d1d1d1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spacer4" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/orderRestaurantTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:bindOrderRestaurant="@{orderItemUi.restaurant.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gap2"
+            tools:text="Ordered from McDonald's" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/orderDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orderRestaurantTextView"
+            app:state="@{orderItemUi.state}"
+            app:timeStamp="@{orderItemUi.timestamp}"
+            tools:text="Order placed on 12 Dec 2022" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
