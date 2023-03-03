@@ -131,6 +131,7 @@
     <string name="building_no">Building no.</string>
     <string name="street_no_name">Street no./name</string>
     <string name="save">Save</string>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYWFzZGFzZDEyIiwiYSI6ImNsNHl2eHlvODIyemczbW1sZWM5bjhqYXMifQ.IuOZJn-uJjaaC8V7VihdsA</string>
     <string name="there_s_already_an_open_cart_are_you_sure_you_want_n_to_create_a_new_one">There\'s already an open Cart, Are you sure you want\nto create a new one?</string>
     <string name="the_ultimate_mix_of_chicken_together_with_mushrooms" translatable="false">The ultimate mix of Chicken together with Mushrooms.</string>
     <string name="no_orders_placed">No orders placed</string>

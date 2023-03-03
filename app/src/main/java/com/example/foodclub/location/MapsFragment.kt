@@ -103,6 +103,7 @@ class MapsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         _binding = FragmentMapsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -337,6 +338,7 @@ class MapsFragment : Fragment() {
         _binding = null
         locationEngine?.removeLocationUpdates(callback)
     }
+
     private open class LocationListeningCallback(fragment: Fragment) :
         LocationEngineCallback<LocationEngineResult> {
 
