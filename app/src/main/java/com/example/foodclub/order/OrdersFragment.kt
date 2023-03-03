@@ -44,20 +44,28 @@ class OrdersFragment : Fragment() {
         viewModel.ordersState.observe(viewLifecycleOwner) {
             when (it) {
                 is DataState.Loading -> {
-                    // SHIMMER
+                    showNoOrders(true)
                 }
                 is DataState.Success -> {
                     val array = it.data
+                    if (array.isEmpty()) {
+                        showNoOrders(true)
+                    } else {
+                        showNoOrders(false)
+                        adapter = OrdersAdapter(OrdersAdapter.OnClickListener(object :
+                                (OrderItemUi) -> Unit {
+                            override fun invoke(orderItemUi: OrderItemUi) {
+                                findNavController().navigate(
+                                    OrdersFragmentDirections.actionOrdersFragmentToViewOrderFragment(
+                                        orderItemUi
+                                    )
+                                )
+                            }
 
-
-                    adapter = OrdersAdapter(OrdersAdapter.OnClickListener(object : (OrderItemUi)-> Unit{
-                        override fun invoke(orderItemUi: OrderItemUi) {
-                            findNavController().navigate(OrdersFragmentDirections.actionOrdersFragmentToViewOrderFragment(orderItemUi))
-                        }
-
-                    }))
-                    adapter?.submitList(array)
-                    binding.ordersRecyclerView.adapter = adapter
+                        }))
+                        adapter?.submitList(array)
+                        binding.ordersRecyclerView.adapter = adapter
+                    }
                 }
                 is DataState.Error -> {
                     Toast.makeText(requireContext(), "An error has occurred", Toast.LENGTH_LONG)
@@ -68,6 +76,21 @@ class OrdersFragment : Fragment() {
         }
 
     }
+
+    private fun showNoOrders(isEmpty: Boolean) {
+        when (isEmpty) {
+            true -> {
+                binding.emptyOrdersLayout.visibility = View.VISIBLE
+                binding.ordersRecyclerView.visibility = View.GONE
+            }
+            false -> {
+                binding.emptyOrdersLayout.visibility = View.GONE
+                binding.ordersRecyclerView.visibility = View.VISIBLE
+            }
+        }
+
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

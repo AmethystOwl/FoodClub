@@ -7,7 +7,7 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginTop="150dp"
         android:scaleType="fitXY"
@@ -16,18 +16,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/cart_animation_lottie" />
+        app:lottie_rawRes="@raw/no_orders_lottie" />
 
     <TextView
+        android:id="@+id/titleTextVIew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hey_your_cart_is_empty"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+        android:text="@string/no_orders_placed"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/animation_view"
         tools:layout_editor_absoluteY="699dp" />
 
+    <TextView
+        android:id="@+id/subTitleTextVIew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:text="@string/orders_placed_will_be_displayed_here"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextVIew" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

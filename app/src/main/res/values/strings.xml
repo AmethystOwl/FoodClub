@@ -41,11 +41,7 @@
     <string name="order_now">Order Now</string>
     <string name="find_your_comfort_n_food_here">Find Your Comfort Food Here</string>
     <string name="here_you_can_find_a_dish_for_every_n_taste_and_color_enjoy">Here you can find a dish for every taste and color, Enjoy!</string>
-    <string name="forgot_password">Forgot Password?</string>
-    <string name="via_sms">Via sms:</string>
-    <string name="via_email">Via email:</string>
     <string name="set_your_location">Set Your Location</string>
-    <string name="your_location">Your Location</string>
     <string name="set_location">Set Location</string>
     <string name="see_in_reality">See in Reality</string>
     <string name="add_to_cart">Add To Cart</string>
@@ -69,7 +65,6 @@
     <string name="create_account">Create Account</string>
     <string name="enjoy_a_fast_and_smooth_food_delivery_at_n_your_doorstep">Enjoy a fast and smooth food delivery at\nyour doorstep</string>
     <string name="reset_your_password_here">Reset Your Password Here</string>
-    <string name="select_which_method_should_be_used_to_reset_your_password">Select which method should be used to reset your password</string>
     <string name="what_do_you_want_to_order">What do you want to order?</string>
     <string name="discover_top_dishes">Discover Top Dishes</string>
     <string name="view_more">View More</string>
@@ -95,14 +90,12 @@
     <string name="arabic_code" translatable="false">ar</string>
     <string name="english_code" translatable="false">en</string>
     <string name="order_details">Order Details</string>
-    <string name="your_orders">Your Orders</string>
     <string name="address">Address</string>
     <string name="working_hours">Working hours</string>
     <string name="ate_here_before">Ate here before?</string>
     <string name="add_review">Add Review</string>
     <string name="write_your_review_here">Write your review here</string>
     <string name="post_review">Post Review</string>
-    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYWFzZGFzZDEyIiwiYSI6ImNsNHl2eHlvODIyemczbW1sZWM5bjhqYXMifQ.IuOZJn-uJjaaC8V7VihdsA</string>
     <string name="orders">Orders</string>
     <string name="checkout_now">Checkout Now</string>
     <string name="your_orders_from">Your orders from</string>
@@ -117,9 +110,7 @@
     <string name="orderedFrom">Ordered from %s</string>
     <string name="buy_it_again">Buy it again</string>
     <string name="how_was_the_food">How was the food?</string>
-    <string name="write_a_meal_review">Write a meal review</string>
     <string name="review_your_food">Review your food</string>
-    <string name="order_info">Order info</string>
     <string name="set_current_location">Set Current Location</string>
     <string name="userLocation">Apartment #%d, floor #%d, building #%d, %s</string>
     <string name="old_pass_invalid">"Old password is invalid,\nPlease try again."</string>
@@ -142,4 +133,6 @@
     <string name="save">Save</string>
     <string name="there_s_already_an_open_cart_are_you_sure_you_want_n_to_create_a_new_one">There\'s already an open Cart, Are you sure you want\nto create a new one?</string>
     <string name="the_ultimate_mix_of_chicken_together_with_mushrooms" translatable="false">The ultimate mix of Chicken together with Mushrooms.</string>
+    <string name="no_orders_placed">No orders placed</string>
+    <string name="orders_placed_will_be_displayed_here">Orders placed will be displayed here</string>
 </resources>

@@ -44,7 +44,6 @@
     <string name="order_now">اطلب الان</string>
     <string name="find_your_comfort_n_food_here">ابحث عن طعام الراحة هنا</string>
     <string name="here_you_can_find_a_dish_for_every_n_taste_and_color_enjoy">هنا يمكنك العثور على طبق لكل ذوق ولون ، استمتع!</string>
-    <string name="forgot_password">نسيت كلمة المرور؟</string>
     <string name="reviews">تعليقات</string>
     <string name="egp">جم</string>
     <string name="create_account">انشاء حساب</string>
@@ -63,11 +62,7 @@
     <string name="add_to_cart">أضف إلى السلة</string>
     <string name="see_in_reality">شاهد في الواقع</string>
     <string name="set_location">تحديد الموقع</string>
-    <string name="your_location">موقعك</string>
     <string name="set_your_location">حدد مكانك</string>
-    <string name="via_email">عبر البريد الالكتروني:</string>
-    <string name="via_sms">عبر الsms:</string>
-    <string name="select_which_method_should_be_used_to_reset_your_password">حدد الطريقة التي يجب استخدامها لإعادة تعيين كلمة المرور الخاصة بك</string>
     <string name="delete">حذف</string>
     <string name="edit">تعديل</string>
     <string name="what_do_you_want_to_order">ماذا تريد أن تطلب؟</string>
@@ -92,12 +87,9 @@
     <string name="write_your_review_here">اكتب رأيك هنا</string>
     <string name="post_review">نشر مراجعة</string>
     <string name="orders">الطلبات</string>
-    <string name="your_orders">طلباتك</string>
     <string name="order_details">تفاصيل الطلب</string>
     <string name="orderedFrom">طلب من %s</string>
-    <string name="order_info">معلومات الطلب</string>
     <string name="review_your_food">قيم طعامك</string>
-    <string name="write_a_meal_review">قيم طعامك</string>
     <string name="how_was_the_food">كيف كان طعامك؟</string>
     <string name="buy_it_again">اشتري مجددا</string>
     <string name="orderState">طلب من %s في %s</string>
@@ -129,4 +121,6 @@
     <string name="building_no">رقم المبنى</string>
     <string name="street_no_name">رقم/اسم الشارع</string>
     <string name="save">حفظ</string>
+    <string name="no_orders_placed">لا يوجد طلبات بعد</string>
+    <string name="orders_placed_will_be_displayed_here">طلباتك ستظهر هنا</string>
 </resources>

@@ -26,10 +26,17 @@
                 app:title="@string/orders" />
         </com.google.android.material.appbar.AppBarLayout>
 
+        <include
+            android:id="@+id/empty_orders_layout"
+            layout="@layout/layout_empty_orders"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ordersRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/item_order" />

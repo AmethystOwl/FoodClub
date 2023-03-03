@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.ahmadhamwi.tabsync.TabbedListMediator
 import com.example.foodclub.adapter.MenuAdapter
 import com.example.foodclub.adapter.MenuCategoryAdapter
 import com.example.foodclub.cart.CartViewModel
@@ -19,6 +18,7 @@ import com.example.foodclub.model.MenuCategoryUi
 import com.example.foodclub.model.MenuItem
 import com.example.foodclub.model.MenuItemUi
 import com.example.foodclub.utils.DataState
+import com.example.foodclub.utils.TabRecyclerSync
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,7 +37,13 @@ class RestaurantMenuFragment(
         val onMenuItemClickListener = MenuAdapter.OnMenuItemClickListener {
             findNavController().navigate(
                 RestaurantFragmentDirections.actionRestaurantFragmentToMealFragment(
-                    restaurantId, restaurantName, restaurantLogo,it.id!!, it.present!!,it.qty?.toLong()!!)
+                    restaurantId,
+                    restaurantName,
+                    restaurantLogo,
+                    it.id!!,
+                    it.present!!,
+                    it.qty?.toLong()!!
+                )
             )
         }
         var cartItems = ArrayList<CartItemUi>()
@@ -64,6 +70,7 @@ class RestaurantMenuFragment(
 
                 }
                 is DataState.Success -> {
+                    val listSorted = HashMap<String, List<MenuItem>>()
                     val data = it.data
                     val cats = ArrayList<String>()
                     data.forEach { test ->
@@ -72,14 +79,10 @@ class RestaurantMenuFragment(
 
                         }
                     }
-                    val listSorted = HashMap<String, List<MenuItem>>()
 
                     binding.categoriesTabLayout.removeAllTabs()
 
                     cats.forEach { category ->
-                        binding.categoriesTabLayout.addTab(
-                            binding.categoriesTabLayout.newTab().setText(category)
-                        )
                         listSorted[category] = data.filter { it.category == category }
                     }
 
@@ -99,14 +102,17 @@ class RestaurantMenuFragment(
                     }
                     val adapter = MenuCategoryAdapter(onMenuItemClickListener, cartItems)
                     adapter.submitList(adapterList)
-
+                    listSorted.entries.forEach {
+                        binding.categoriesTabLayout.addTab(
+                            binding.categoriesTabLayout.newTab().setText(it.key)
+                        )
+                    }
                     binding.apply {
                         restaurantMenuRecyclerView.adapter = adapter
-                        TabbedListMediator(
+                        TabRecyclerSync(
                             restaurantMenuRecyclerView,
                             categoriesTabLayout,
-                            cats.indices.toList(),
-                            true
+                            listSorted.entries.indices.toList(), true
                         ).attach()
 
                     }

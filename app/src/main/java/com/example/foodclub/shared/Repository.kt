@@ -968,8 +968,8 @@ class Repository @Inject constructor(
                 .document(uuid)
                 .set(orderItem)
             val tasks = arrayListOf(userTask, restaurantTask)
-            Tasks.whenAllComplete(tasks).addOnCompleteListener { tasks ->
-                tasks.result.forEach { task ->
+            Tasks.whenAllComplete(tasks).addOnCompleteListener { allTasks ->
+                allTasks.result.forEach { task ->
                     if (task.exception != null) {
                         trySend(DataState.Error(task.exception!!))
                         close(task.exception)
@@ -1018,50 +1018,51 @@ class Repository @Inject constructor(
                                 trySend(DataState.Error(it.exception!!))
                                 close()
                             } else {
-                                fireStore.collection(Constants.RESTAURANTS_COLLECTION)
-                                    .document(orderItems[0].restaurantId!!).get()
-                                    .addOnCompleteListener {
-                                        if (it.exception != null) {
-                                            trySend(DataState.Error(it.exception!!))
-                                            close()
-                                        } else {
-                                            val restaurant =
-                                                it.result.toObject(Restaurant::class.java)
-                                            restaurant?.id = it.result.id
-                                            val items = ArrayList<OrderItemUi>()
-                                            launch {
-                                                docTasks.result.forEach {
-                                                    val res = it.result as DocumentSnapshot
-                                                    val menuItem =
-                                                        res.toObject(MenuItem::class.java)
-                                                    menuItem?.id = res.id
-                                                    orderItems.forEach { orderItem ->
-                                                        orderItem.items?.forEach { orderItemsDetails ->
-                                                            if (orderItemsDetails.mealId == menuItem?.id) {
-                                                                val orderItemUi = OrderItemUi(
-                                                                    orderId = orderItem.orderId,
-                                                                    restaurant = restaurant,
-                                                                    mealId = orderItemsDetails.mealId,
-                                                                    quantity = orderItemsDetails.quantity,
-                                                                    name = menuItem?.name,
-                                                                    imageUrl = menuItem?.imageUrl,
-                                                                    price = orderItemsDetails.price,
-                                                                    total = orderItemsDetails.total,
-                                                                    timestamp = orderItem.timestamp,
-                                                                )
-                                                                items.add(orderItemUi)
-                                                            }
-                                                        }
-
-                                                    }
-                                                }
-                                            }.invokeOnCompletion {
-                                                trySend(DataState.Success(items))
+                                if (orderItems.isNotEmpty()) {
+                                    fireStore.collection(Constants.RESTAURANTS_COLLECTION)
+                                        .document(orderItems[0].restaurantId!!).get()
+                                        .addOnCompleteListener {
+                                            if (it.exception != null) {
+                                                trySend(DataState.Error(it.exception!!))
                                                 close()
+                                            } else {
+                                                val restaurant =
+                                                    it.result.toObject(Restaurant::class.java)
+                                                restaurant?.id = it.result.id
+                                                val items = ArrayList<OrderItemUi>()
+                                                launch {
+                                                    docTasks.result.forEach {
+                                                        val res = it.result as DocumentSnapshot
+                                                        val menuItem =
+                                                            res.toObject(MenuItem::class.java)
+                                                        menuItem?.id = res.id
+                                                        orderItems.forEach { orderItem ->
+                                                            orderItem.items?.forEach { orderItemsDetails ->
+                                                                if (orderItemsDetails.mealId == menuItem?.id) {
+                                                                    val orderItemUi = OrderItemUi(
+                                                                        orderId = orderItem.orderId,
+                                                                        restaurant = restaurant,
+                                                                        mealId = orderItemsDetails.mealId,
+                                                                        quantity = orderItemsDetails.quantity,
+                                                                        name = menuItem?.name,
+                                                                        imageUrl = menuItem?.imageUrl,
+                                                                        price = orderItemsDetails.price,
+                                                                        total = orderItemsDetails.total,
+                                                                        timestamp = orderItem.timestamp,
+                                                                    )
+                                                                    items.add(orderItemUi)
+                                                                }
+                                                            }
+
+                                                        }
+                                                    }
+                                                }.invokeOnCompletion {
+                                                    trySend(DataState.Success(items))
+                                                    close()
+                                                }
                                             }
                                         }
-                                    }
-
+                                }
 
                             }
 
